@@ -111,6 +111,11 @@
 			$err_username ="Password must contain >8 characters";
 
 		}
+		else if(is_numeric($_POST["password"]) <= 1){
+			$hasError = true;
+			$err_phonenumber ="Password must contain 1 numeric value. ";
+
+		}
         else{
 			$password = htmlspecialchars($_POST["password"]);
 		}
