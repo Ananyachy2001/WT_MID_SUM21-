@@ -138,7 +138,7 @@
 			$hasError = true;
 			$err_email ="Email Required";
 		}
-        else if( strpos($_POST["email"],"@") ){
+        else if( ($_POST["email"],"@") ){
 
             if(strpos($_POST["email"],".")){
             $email = htmlspecialchars($_POST["email"]);
