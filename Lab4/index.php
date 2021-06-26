@@ -100,7 +100,7 @@
 
 		}
 
-		else if(strpos($_POST["username"],"#") or strpos($_POST["username"],"?") ){
+		else if(strpos($_POST["password"],"#") or strpos($_POST["password"],"?") ){
 
 			$hasError = true;
 			$err_password ="password must have a # or ?";
@@ -108,7 +108,7 @@
 		}
 		else if(strlen($_POST["password"]) <= 8){
 			$hasError = true;
-			$err_username ="Password must contain >8 characters";
+			$err_password ="Password must contain >8 characters";
 
 		}
 		else if(is_numeric($_POST["password"]) <= 1){
@@ -138,7 +138,7 @@
 			$hasError = true;
 			$err_email ="Email Required";
 		}
-        else if( ($_POST["email"],"@") ){
+        else if( strpos($_POST["email"],"@") ){
 
             if(strpos($_POST["email"],".")){
             $email = htmlspecialchars($_POST["email"]);
@@ -286,6 +286,9 @@
 		echo $_POST["addresscity"]."<br>";
 		echo $_POST["addressstate"]."<br>";
 		echo $_POST["addresspostal"]."<br>";
+		echo $_POST["birthday"]."<br>";
+		echo $_POST["birthmonth"]."<br>";
+		echo $_POST["birthyear"]."<br>";
 		
     	echo $_POST["gender"]."<br>";
 		
