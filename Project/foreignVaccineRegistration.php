@@ -203,6 +203,8 @@
             <h1 align="center">Vaccine Registration for Foreigners</h1>
 			<table>
 
+
+			<span align="center"><img  height="200px" width="200px" src="3.jpg" alt=""></span>
 				<tr>
 					<td>First Name</td>
 					<td>: <input type="text" name="forfirstname" value="<?php echo $forfirstname; ?>" placeholder=""> </td>

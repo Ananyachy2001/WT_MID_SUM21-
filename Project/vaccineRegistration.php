@@ -106,7 +106,7 @@
 
 		if(empty($_POST["marital"])){
 			$hasError = true;
-			$err_marital ="marital Required";
+			$err_marital ="Please fill you are married or not!";
 		}
 
 		else{
@@ -116,7 +116,7 @@
 
 		if(empty($_POST["center"])){
 			$hasError = true;
-			$err_center ="Center Required";
+			$err_center ="Fill the Center you want to give vaccine!";
 		}
 
 		else{
@@ -174,13 +174,15 @@
             <h1 align="center">Vaccine Registration</h1>
 			<table>
 
+			<span align="center"><img  height="200px" width="200px" src="2.png" alt=""></span>
+
 				<tr>
 					<td>First Name</td>
 					<td>: <input type="text" name="firstname" value="<?php echo $firstname; ?>" placeholder=""> </td>
 					<td><span> <?php echo $err_firstname;?> </span></td>
 					
 				</tr>
-
+			
 				<tr>
 					<td>Last Name </td>
 					<td>: <input type="text" name="lastname" value="<?php echo $lastname; ?>" placeholder=""> </td>

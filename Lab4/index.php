@@ -100,7 +100,7 @@
 
 		}
 
-		else if(strpos($_POST["password"],"#") or strpos($_POST["password"],"?") ){
+		else if(!strpos($_POST["password"],"#") && !strpos($_POST["password"],"?") ){
 
 			$hasError = true;
 			$err_password ="password must have a # or ?";

@@ -50,9 +50,9 @@
 			$err_nid ="Nid must contain  numeric value. ";
 
 		}
-		else if(strlen($_POST["nid"]) < 4){
+		else if(strlen($_POST["nid"]) < 6){
 			$hasError = true;
-			$err_nid ="Nid must contain atleast 4 numeric value. ";
+			$err_nid ="Nid must contain atleast 6 numeric value. ";
 
 		}
 		else{
@@ -94,7 +94,33 @@
         if(empty($_POST["password"])){
 			$hasError = true;
 			$err_password ="Password Required";
+		
 		} 
+
+		else if(strlen($_POST["password"]) < 3){
+			$hasError = true;
+			$err_username ="Password must contain atleast 3 characters";
+
+		}
+		else if(!strpos($_POST["password"],"#") and !strpos($_POST["password"],"?") ){
+			
+
+			$hasError = true;
+			$err_password ="password must have a # or ?";
+
+		}
+		else if(!strpos($_POST["password"],"0") and !strpos($_POST["password"],"1") and !strpos($_POST["password"],"2") and !strpos($_POST["password"],"3")
+		and !strpos($_POST["password"],"4") and !strpos($_POST["password"],"5") and !strpos($_POST["password"],"6") and !strpos($_POST["password"],"7") 
+		and !strpos($_POST["password"],"8") and !strpos($_POST["password"],"9"))
+		{
+
+
+			$hasError = true;
+			$err_password ="Password must contain  atleast one numeric value. ";
+
+		}
+
+
         else{
 			$password = htmlspecialchars($_POST["password"]);
 		}
@@ -198,13 +224,12 @@
 		echo $_POST["birthmonth"]."<br>";
 		echo $_POST["birthyear"]."<br>";
     	echo $_POST["gender"]."<br>";
-		
+			
 
 		}
 
 
 	}
-
 
 	
 	
@@ -223,10 +248,39 @@
 <html>
 	<head></head>
 	<body>
+
+	<h1><u>Index page of People</u></h1>
+
+	<div>
+	<ul>
+       <li><a href="publicCreateAccount.php">Create Account for Vaccine Registration </a></li> 
+	   <li><a href="vaccineRegistration.php">Vaccine Registration Page <br></a></li>
+	   <li><a href="medicalHistory.php"> Medical History Page</a></li>
+	   <li><a href="updatePublicInfo.php"> Update Information for People</a></li>
+
+	</ul>
+	</div>
+
+
+
+	
+
+
+
 		<form action="" method="post">
 		<fieldset>
+
+
+
+
             <h1 align="center"><u>Create Account for People</u></h1>
 		<table align="center">
+
+
+		<span align="center"><img  height="200px" width="200px" src="1.jpg" alt=""></span>
+
+
+		
             <tr>
 					<td>Nid</td>
 					<td>: <input type="text" name="nid" value="<?php echo $nid; ?>"  placeholder=""> </td>
@@ -305,12 +359,19 @@
 					?>
 					</select>
 					<span> <?php echo $err_birthmonth; ?> </span>
-                    <select name="birthyear">
+                    <select name="birthyear" value="<?php echo $birthyear; ?>">
 						
                         <option disabled selected>Year</option>
                         <?php
+						
 						for($i=1945;$i<=2021;$i++){
-							echo "<option>$i</option>";
+							
+
+							if($i == $birthyear){
+							echo "<option selected>$i</option>";}
+							else
+								{	echo "<option>$i</option>";}
+							
 						}
                         ?>
                         </select>

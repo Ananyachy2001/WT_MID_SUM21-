@@ -59,7 +59,7 @@
 			if($_POST["symptoms"]=="Yes")
 			{
 			$hasError = true;
-			$err_symptoms1 ="Please describe the Symtoms as you clicked";
+			$err_symptoms1 ="Please describe the Symtoms as you clicked Yes";
 		}
 		}
 
@@ -77,8 +77,11 @@
 		}
 
 		if(empty($_POST["effected1"])){
+			if($_POST["effected"]=="Yes")
+			{
 			$hasError = true;
-			$err_effected1 ="Effected1 or not Required";
+			$err_effected1 ="Please describe the effect as you clicked Yes";
+			}
 		}
 
 		else{
@@ -87,8 +90,10 @@
 
 
 		if(empty($_POST["bloodpressure"])){
+
 			$hasError = true;
 			$err_bloodpressure ="bloodpressure Required";
+			
 		}
 
 		else{
@@ -96,8 +101,11 @@
 		}
 
 		if(empty($_POST["bloodpressure1"])){
+			if($_POST["bloodpressure"]=="Yes")
+			{
 			$hasError = true;
-			$err_bloodpressure1 ="bloodpressure1 Required";
+			$err_bloodpressure1 ="Please describe the effect as you clicked Yes";
+			}
 		}
 
 		else{
@@ -113,8 +121,11 @@
 			$cancer = htmlspecialchars($_POST["cancer"]);
 		}
 		if(empty($_POST["cancer1"])){
+			if($_POST["cancer"]=="Yes")
+			{
 			$hasError = true;
-			$err_cancer1 ="cancer1 Required";
+			$err_cancer1 ="Please describe the cancer as you clicked Yes";
+			}
 		}
 
 		else{
@@ -132,8 +143,11 @@
 		}
 
 		if(empty($_POST["stroke1"])){
+			if($_POST["cancer"]=="Yes")
+			{
 			$hasError = true;
-			$err_stroke1 ="stroke1 Required";
+			$err_stroke1 ="Please describe the cancer as you clicked Yes";
+			}
 		}
 
 		else{
@@ -151,8 +165,11 @@
 		}
 
 		if(empty($_POST["problem1"])){
+			if($_POST["problem"]=="Yes")
+			{
 			$hasError = true;
-			$err_problem1 ="problem1 Required";
+			$err_problem1 ="Please describe the problem as you clicked Yes";
+			}
 		}
 
 		else{
@@ -169,8 +186,11 @@
 		}
 
 		if(empty($_POST["medicines1"])){
+			if($_POST["medicines"]=="Yes")
+			{
 			$hasError = true;
-			$err_medicines1 ="medicines1 Required";
+			$err_medicines1 ="Please describe the medicines you clicked Yes";
+			}
 		}
 
 		else{
@@ -226,7 +246,9 @@
             <h1 align="center">Medical History of patient</h1>
 			<table>
 			<tr>
-		    	<td><br> Do you have any fever or other symptoms that could be due to COVID-19? <br> <input name="symptoms" value="Yes" <?php if($symptoms=="Yes") echo "checked"; ?> type="radio"> Yes <input name="symptoms" value="No" <?php if($symptoms=="No") echo "checked"; ?> type="radio"> No </td>
+		    	<td><br> Do you have any fever or other symptoms that could be due to COVID-19? <br> 
+				<input name="symptoms" value="Yes" <?php if($symptoms=="Yes") echo "checked"; ?> type="radio"> Yes 
+				<input name="symptoms" value="No" <?php if($symptoms=="No") echo "checked"; ?> type="radio"> No </td>
 				<td><span> <?php echo $err_symptoms;?> </span></td>
 			</tr>
 
