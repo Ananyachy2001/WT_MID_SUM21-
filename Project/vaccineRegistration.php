@@ -43,6 +43,12 @@
 			$err_firstname ="First Name  Required";
 		}
 
+		else if(strlen($_POST["firstname"]) < 4){
+			$hasError = true;
+			$err_firstname ="Firstname must contain atleast 4 characters.";
+
+		}
+
 		else{
 			$firstname = htmlspecialchars($_POST["firstname"]);
 		}
@@ -51,6 +57,12 @@
 		if(empty($_POST["lastname"])){
 			$hasError = true;
 			$err_lastname ="Last Name Required";
+		}
+
+		else if(strlen($_POST["lastname"]) < 4){
+			$hasError = true;
+			$err_lastname ="Lastname must contain atleast 4 characters.";
+
 		}
 
 		else{
@@ -78,7 +90,7 @@
 
 		if(empty($_POST["occupation1"])){
 			$hasError = true;
-			$err_occupation1 ="Occupation 1 other Required";
+			$err_occupation1 ="Occupation if clicked other then write";
 		}
 
 		else{
@@ -100,9 +112,24 @@
 			$err_postal ="Postal Code Required";
 		}
 
+		else if(!is_numeric($_POST["postal"])){
+			$hasError = true;
+			$err_postal ="Postal code must be numeric characters ";
+
+		}
+
+
+		else if(strlen($_POST["postal"]) < 3){
+			$hasError = true;
+			$err_postal ="Postal code must contain atleast 3 characters";
+
+		}
+
 		else{
 			$postal = htmlspecialchars($_POST["postal"]);
 		}
+
+
 
 		if(empty($_POST["marital"])){
 			$hasError = true;
@@ -177,38 +204,38 @@
 			<span align="center"><img  height="200px" width="200px" src="2.png" alt=""></span>
 
 				<tr>
-					<td>First Name</td>
-					<td>: <input type="text" name="firstname" value="<?php echo $firstname; ?>" placeholder=""> </td>
+					<td>First Name:</td>
+					<td><input type="text" name="firstname" value="<?php echo $firstname; ?>" placeholder=""> </td>
 					<td><span> <?php echo $err_firstname;?> </span></td>
 					
 				</tr>
 			
 				<tr>
-					<td>Last Name </td>
-					<td>: <input type="text" name="lastname" value="<?php echo $lastname; ?>" placeholder=""> </td>
+					<td>Last Name:</td>
+					<td><input type="text" name="lastname" value="<?php echo $lastname; ?>" placeholder=""> </td>
 					<td><span> <?php echo $err_lastname;?> </span></td>
 					
 				</tr>
 
 			<tr>
-                <td>Age</td>
+                <td>Age:</td>
                 <td><input type="radio" value="older than 50 " <?php if($age=="older than 50") echo "checked"; ?> name="age"> older than 50</td>
 				<td><input name="age" value="31-50" <?php if($age=="31-50") echo "checked"; ?> type="radio">31-50 </td>
 				<td><input name="age" value="18-30" <?php if($age=="18-30 ") echo "checked"; ?> type="radio">18-30 </td>
 				<td><input name="age" value="less than 18" <?php if($age=="less than 18") echo "checked"; ?> type="radio">less than 18 </td>
-				<td><span> <?php echo $err_age;?> </span></td>
+				<td><span>  <?php echo $err_age;?> </span></td>
 
             </tr>
 
                 <tr>
 					<td>What's your Occupation?</td>
-				<td> <input type="radio" value="Businessman" <?php if($occupation=="Male") echo "checked"; ?> name="occupation" >Businessman</td>
-				<td> <input name="occupation" value="Goverment Worker" <?php if($occupation=="Goverment Worker") echo "checked"; ?> type="radio">Goverment Worker</td>
-				<td> <input name="occupation" value="Banker" <?php if($occupation=="Banker") echo "checked"; ?> type="radio">Banker</td>
-				<td> <input name="occupation" value="Student" <?php if($occupation=="Student") echo "checked"; ?> type="radio"> Student </td>
-				<td> <input name="occupation" value="Teacher" <?php if($occupation=="Teacher") echo "checked"; ?> type="radio"> Teacher</td>
-				<td> <input name="occupation" value="Others" <?php if($occupation=="Others") echo "checked"; ?> type="radio"> Others </td>
-				<td><span> <?php echo $err_occupation;?> </span></td>
+				<td><input type="radio" value="Businessman" <?php if($occupation=="Male") echo "checked"; ?> name="occupation" >Businessman</td>
+				<td><input name="occupation" value="Goverment Worker" <?php if($occupation=="Goverment Worker") echo "checked"; ?> type="radio">Goverment Worker</td>
+				<td><input name="occupation" value="Banker" <?php if($occupation=="Banker") echo "checked"; ?> type="radio">Banker</td>
+				<td><input name="occupation" value="Student" <?php if($occupation=="Student") echo "checked"; ?> type="radio"> Student </td>
+				<td><input name="occupation" value="Teacher" <?php if($occupation=="Teacher") echo "checked"; ?> type="radio"> Teacher</td>
+				<td><input name="occupation" value="Others" <?php if($occupation=="Others") echo "checked"; ?> type="radio"> Others </td>
+				<td><span>  <?php echo $err_occupation;?> </span></td>
 
 				
 

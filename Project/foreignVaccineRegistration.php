@@ -47,6 +47,11 @@
 			$hasError = true;
 			$err_forfirstname ="First Name  Required";
 		}
+		else if(strlen($_POST["forfirstname"]) < 4){
+			$hasError = true;
+			$err_forfirstname ="Firstname must contain atleast 4 characters.";
+
+		}
 
 		else{
 			$forfirstname = htmlspecialchars($_POST["forfirstname"]);
@@ -56,6 +61,12 @@
 		if(empty($_POST["forlastname"])){
 			$hasError = true;
 			$err_forlastname ="Last Name Required";
+		}
+
+		else if(strlen($_POST["forlastname"]) < 4){
+			$hasError = true;
+			$err_forlastname ="Firstname must contain atleast 4 characters.";
+
 		}
 
 		else{
@@ -94,6 +105,7 @@
 			$hasError = true;
 			$err_country ="Country Required";
 		}
+		
 
 		else{
 			$country = htmlspecialchars($_POST["country"]);
@@ -125,6 +137,19 @@
 		if(empty($_POST["forpostal"])){
 			$hasError = true;
 			$err_forpostal ="Postal Code Required";
+		}
+
+		else if(!is_numeric($_POST["forpostal"])){
+			$hasError = true;
+			$err_forpostal ="Postal code must be numeric characters ";
+
+		}
+
+
+		else if(strlen($_POST["forpostal"]) < 3){
+			$hasError = true;
+			$err_forpostal ="Postal code must contain atleast 3 characters";
+
 		}
 
 		else{
